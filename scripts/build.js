@@ -74,18 +74,21 @@ function footer() {
 }
 
 function shell(options) {
-  const title = options.title === 'Edric Gan' ? 'Edric Gan — Builder, AI products, and fintech' : options.title + ' — Edric Gan';
+  const title = options.title === 'Edric Gan' ? 'Edric Gan — AI Product Builder and Fintech Tech Lead' : options.title + ' — Edric Gan';
+  const socialTitle = options.socialTitle || title;
+  const socialDescription = options.socialDescription || options.description;
   const url = canonicalRoot + (options.route === '/' ? '/' : '/' + options.route.replace(/^\//, '').replace(/\/$/, ''));
   const jsonLd = options.jsonLd ? '<script type="application/ld+json">' + JSON.stringify(options.jsonLd) + '</script>' : '';
   return '<!doctype html><html lang="en"><head>' +
     '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
     '<title>' + esc(title) + '</title><meta name="description" content="' + esc(options.description) + '">' +
     '<link rel="canonical" href="' + esc(url) + '"><meta name="theme-color" content="#FBFAF7">' +
-    '<meta property="og:type" content="' + (options.type || 'website') + '"><meta property="og:title" content="' + esc(title) + '">' +
-    '<meta property="og:description" content="' + esc(options.description) + '"><meta property="og:url" content="' + esc(url) + '">' +
-    '<meta property="og:image" content="' + canonicalRoot + '/assets/og-preview.jpg"><meta name="twitter:card" content="summary_large_image">' +
+    '<meta property="og:type" content="' + (options.type || 'website') + '"><meta property="og:title" content="' + esc(socialTitle) + '">' +
+    '<meta property="og:description" content="' + esc(socialDescription) + '"><meta property="og:url" content="' + esc(url) + '">' +
+    '<meta property="og:image" content="' + canonicalRoot + '/assets/og-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Edric Gan — AI products, fintech systems, and technical leadership">' +
+    '<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="' + esc(socialTitle) + '"><meta name="twitter:description" content="' + esc(socialDescription) + '"><meta name="twitter:image" content="' + canonicalRoot + '/assets/og-preview.png">' +
     (options.published ? '<meta property="article:published_time" content="' + esc(options.published) + '">' : '') +
-    '<link rel="icon" href="/assets/profile.jpg"><link rel="preconnect" href="https://fonts.googleapis.com">' +
+    '<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com">' +
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
     '<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">' +
     '<link rel="stylesheet" href="/styles.css">' + jsonLd + '</head><body>' +
@@ -166,7 +169,7 @@ const home = '<div class="col"><section class="hero">' +
   '<section class="section">' + sectionHead('05', 'Writing', '/articles/', 'All 8 articles') + articleList(4) + '</section>' +
   '<section class="contact-block" id="contact"><div class="contact-block__inner"><p class="eyebrow">Work together</p><h2>Building or backing an ambitious product?</h2><p>I work with founders, investors, and engineering teams to assess technical opportunities, shape AI products, and turn complex plans into working systems.</p><div class="actions"><a class="btn btn--primary" href="mailto:edricgan.44@gmail.com">Discuss an opportunity</a><a class="btn btn--secondary" href="/projects/">See selected work</a></div></div></section></div>';
 
-write('/', shell({ title: 'Edric Gan', route: '/', active: '', description: 'Edric Gan builds AI and fintech products, leads engineering teams, and coaches engineers.', body: home, jsonLd: personLd }));
+write('/', shell({ title: 'Edric Gan', route: '/', active: '', description: 'Tech lead and AI advisor with eight years across fintech, payments, Web3, and product engineering. Building useful products and helping engineers grow.', socialTitle: 'Edric Gan — AI Product Builder and Fintech Tech Lead', body: home, jsonLd: personLd }));
 
 const projects = '<div class="wide"><header class="page-head prose-width"><p class="eyebrow">Projects</p><h1>Selected products and systems.</h1><p>I work across product, backend, frontend, AI, and delivery. These projects show the range.</p></header>' +
   '<section class="section case-grid">' +
@@ -176,7 +179,7 @@ const projects = '<div class="wide"><header class="page-head prose-width"><p cla
   '<article class="case-study" id="data-science"><div><p class="eyebrow">Data science</p><h2>Prediction and spam detection</h2><p class="case-study__dek">Three projects that move from data checks to measured model results.</p><ul class="case-study__facts"><li><strong>15%</strong><span>over baseline</span></li><li><strong>3</strong><span>stacked models</span></li><li><strong>2</strong><span>spam approaches</span></li></ul><div class="case-study__body"><p>The flat-price model uses MLflow and a stack of random forest, Elastic Net, and XGBoost. It beat the baseline by 15%.</p><p>The spam work compares classic machine learning with GloVe embeddings and a bidirectional GRU.</p></div><div class="actions"><a class="btn btn--secondary" href="/articles/singapore-flat-price-predictor/">Read the case study</a></div></div><figure class="case-study__media"><img src="/assets/hdb.jpg" alt="Singapore flat price prediction interface" loading="lazy"><figcaption>Experiment tracking and model stacking for flat prices.</figcaption></figure></article>' +
   '</section></div>';
 
-write('projects', shell({ title: 'Projects', route: '/projects/', active: 'projects', description: 'AI products, fintech systems, open source work, and data science projects built by Edric Gan.', body: projects }));
+write('projects', shell({ title: 'AI Products and Engineering Projects', route: '/projects/', active: 'projects', description: 'Selected AI products, fintech systems, open-source work, and applied machine learning projects by Edric Gan.', body: projects }));
 
 const work = '<div class="col"><header class="page-head"><p class="eyebrow">Work</p><h1>Eight years of systems, products, and teams.</h1><p>I build software that moves money, assets, and ideas. The numbers below come from shipped work.</p></header><section class="section"><ol class="timeline">' +
   '<li><div class="timeline__date">Apr 2025 — now</div><div class="timeline__body"><h2>Fintech startup</h2><p class="role">TECH LEAD</p><ul><li>Lead a six-person engineering team.</li><li>Work with the card-issuing transaction team.</li><li>Support systems that process millions of dollars each month.</li></ul></div></li>' +
@@ -187,22 +190,22 @@ const work = '<div class="col"><header class="page-head"><p class="eyebrow">Work
   '<li><div class="timeline__date">2014 — 2018</div><div class="timeline__body"><h2>Nanyang Technological University</h2><p class="role">BENG · ELECTRICAL AND ELECTRONIC ENGINEERING</p><ul><li>First Class Honours, Highest Distinction.</li><li>Dean\'s List, 2014/15.</li><li>CGPA 4.61 out of 5.</li></ul></div></li>' +
   '</ol></section><section class="contact-block"><div class="contact-block__inner"><p class="eyebrow">Work together</p><h2>Technical leadership from plan to production.</h2><p>I help founders and teams make sound technical choices, lead delivery, and stay close enough to the code to ship.</p><div class="actions"><a class="btn btn--primary" href="mailto:edricgan.44@gmail.com">Discuss an opportunity</a><a class="btn btn--secondary" href="/projects/">See projects</a></div></div></section></div>';
 
-write('work', shell({ title: 'Work', route: '/work/', active: 'work', description: 'Edric Gan has eight years of experience across fintech, payments, Web3, and technical leadership.', body: work }));
+write('work', shell({ title: 'Engineering Leadership and Fintech Experience', route: '/work/', active: 'work', description: 'Eight years leading and building fintech, payments, Web3, and product systems at startups and global technology companies.', body: work }));
 
 const coaching = '<div class="col"><header class="page-head"><p class="eyebrow">Coaching & training</p><h1>Clear steps for hard technical and career problems.</h1><p>I help engineers move up. I also help teams build stronger backend, cloud, and delivery skills.</p><dl class="metrics"><div class="metric"><dt>People trained</dt><dd>100+</dd></div><div class="metric"><dt>Cohorts taught</dt><dd>4</dd></div><div class="metric"><dt>Longest coaching</dt><dd>2 years</dd></div><div class="metric"><dt>Outcomes</dt><dd>New roles + promotions</dd></div></dl></header>' +
-  '<section class="section"><div class="service-grid"><article class="service"><span class="label">For engineers</span><h2>One-to-one coaching</h2><p>A plan built around your role, gaps, and next step.</p><ul><li>System design and backend engineering</li><li>AI agents and product delivery</li><li>Interview practice and job search</li><li>Leadership and the move to senior roles</li><li>One 60-minute call and ongoing chat</li></ul><div class="actions"><a class="btn btn--primary" href="https://mentorcruise.com/mentor/edricgan/">Book a free intro call</a></div></article>' +
+  '<section class="section"><div class="service-grid"><article class="service"><span class="label">For engineers</span><h2>One-to-one coaching</h2><p>A plan built around your role, gaps, and next step.</p><ul><li>System design and backend engineering</li><li>AI agents and product delivery</li><li>Interview practice and job search</li><li>Leadership and the move to senior roles</li><li>One 60-minute call and ongoing chat</li></ul><div class="actions"><a class="btn btn--primary" href="https://mentorcruise.com/mentor/edricgan/apply/?plan=7b315a6f08">See coaching options</a></div></article>' +
   '<article class="service"><span class="label">For teams</span><h2>Training and technical advice</h2><p>Practical sessions based on the systems your team has to run.</p><ul><li>Backend performance and system design</li><li>Cloud, Docker, Kubernetes, and CI/CD</li><li>Test-driven development</li><li>AI product strategy and delivery</li><li>Delivery process for growing teams</li></ul><div class="actions"><a class="btn btn--secondary" href="mailto:edricgan.44@gmail.com">Ask about team work</a></div></article></div></section>' +
   '<section class="section">' + sectionHead('01', 'Results') + '<ul class="rows"><li><div class="row"><div><h3>Landed a role at Ant Group International</h3><p>One engineer reached this goal after a year of backend work and interview practice.</p><blockquote class="quote">“Edric structured learning projects that helped me grasp core concepts.”<cite>— Ying Xuan, coached for one year</cite></blockquote></div><span class="meta">CAREER MOVE</span></div></li>' +
   row('Moved from QA into software engineering', 'A two-year plan used code reviews, small projects, and interview practice.', 'ROLE CHANGE') +
   row('100+ adult learners trained', 'Courses covered React, Java, CI/CD, information security, and career skills.', '4 COHORTS') +
   row('Promoted to senior engineer', 'One client reached a senior role after focused coaching on technical growth and leadership.', 'PROMOTION') +
-  '</ul></section><section class="contact-block"><div class="contact-block__inner"><p class="eyebrow">First step</p><h2>Bring one goal. Leave with a clear next move.</h2><p>The intro call is free. We will check the fit and define the first useful step.</p><div class="actions"><a class="btn btn--primary" href="https://mentorcruise.com/mentor/edricgan/">Book a free intro call</a><button class="btn btn--secondary" type="button" data-copy-email>Copy email</button></div></div></section></div>';
+  '</ul></section><section class="contact-block"><div class="contact-block__inner"><p class="eyebrow">First step</p><h2>Bring one goal. Leave with a clear next move.</h2><p>Choose the coaching option that fits your goal. We will define the first useful step together.</p><div class="actions"><a class="btn btn--primary" href="https://mentorcruise.com/mentor/edricgan/apply/?plan=7b315a6f08">See coaching options</a><button class="btn btn--secondary" type="button" data-copy-email>Copy email</button></div></div></section></div>';
 
-write('coaching', shell({ title: 'Coaching', route: '/coaching/', active: 'coaching', description: 'Technical coaching and training for engineers and teams, built on experience helping more than 100 learners.', body: coaching }));
+write('coaching', shell({ title: 'Engineering Coaching and Team Training', route: '/coaching/', active: 'coaching', description: 'Practical coaching for engineers pursuing new roles and promotions, plus technical training for growing teams.', body: coaching }));
 
 const articlesIndex = '<div class="col"><header class="page-head"><p class="eyebrow">Writing</p><h1>Notes on systems, careers, and applied machine learning.</h1><p>Eight articles and 15,995 words. Every article lives here and opens as a real web page.</p></header><section class="section">' + articleList() + '</section></div>';
 
-write('articles', shell({ title: 'Writing', route: '/articles/', active: 'writing', description: 'Eight articles by Edric Gan on system design, software careers, productivity, and machine learning.', body: articlesIndex }));
+write('articles', shell({ title: 'Writing on Engineering, AI, and Career Growth', route: '/articles/', active: 'writing', description: 'Eight practical articles by Edric Gan on system design, software careers, productivity, and applied machine learning.', body: articlesIndex }));
 
 function cleanArticleBody(html, slug) {
   let body = html
