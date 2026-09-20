@@ -140,9 +140,9 @@ const personLd = {
 
 const home = '<div class="wide home"><section class="hero hero--portrait">' +
   '<div class="hero__copy"><p class="eyebrow">Builder · Tech lead · Singapore</p>' +
-  '<h1>I build useful products. Today, most of them use AI.</h1>' +
-  '<p class="hero__lede">I turn new ideas into working systems. I also help engineers grow into senior roles.</p>' +
-  '<p class="hero__note">Eight years across fintech, payments, Web3, and product engineering. I built products at Visa, Ant Group, Immutable, and startups.</p>' +
+  '<h1>I build high-impact products.</h1>' +
+  '<p class="hero__lede">I turn ideas into working systems and advise teams on using AI to improve their products.</p>' +
+  '<p class="hero__note">Eight years across fintech, payments, Web3, and product engineering. I have built products at Visa, Ant Group, Immutable, and startups.</p>' +
   '<div class="hero__actions"><a class="btn btn--primary" href="/projects/">See what I built</a><a class="btn btn--secondary" href="/coaching/">Work with me</a></div></div>' +
   '<figure class="hero__portrait"><img src="/assets/hero-portrait.png" alt="Portrait of Edric Gan" width="760" height="950" fetchpriority="high"></figure>' +
   '<dl class="metrics"><div class="metric"><dt>Experience</dt><dd>8 years</dd></div><div class="metric"><dt>High-impact systems</dt><dd>6</dd></div><div class="metric"><dt>Engineers led</dt><dd>16+</dd></div><div class="metric"><dt>People trained</dt><dd>100+</dd></div></dl>' +
